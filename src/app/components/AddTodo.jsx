@@ -3,15 +3,21 @@ import { useDispatch } from 'react-redux'
 import {addTodo,numberTodo} from '../features/todo/todoSlice'
 
 function AddTodo() {
-
+    const [number, setNumber] = useState('')
+    const [address, setAddress] = useState('')
+    const [pincode, setPincode] = useState('')
     const [input,setInput] = useState('')
     const dispatch = useDispatch()
    
-    const addTodoHandler = (e) => {         //dispatch take value from reducers to change in the store
+    const addTodoHandler = (e) => {         
     e.preventDefault()
-    dispatch(addTodo(input))
+    dispatch(addTodo({input,number,address,pincode}))
+        
     setInput('')
-
+        setNumber('')
+        setAddress('')
+        setPincode('')
+     
   
 }
 
@@ -29,22 +35,22 @@ function AddTodo() {
         type="text"
         className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         placeholder="Number"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={Number}
+        onChange={(e) => setNumber(e.target.value)}
       />
        <input
         type="text"
         className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         placeholder="Address"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={Address}
+        onChange={(e) => setAddress(e.target.value)}
       />
         <input
         type="text"
         className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         placeholder="Pincode"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={Pincode}
+        onChange={(e) => setPincode(e.target.value)}
       />
       <button
         type="submit"
