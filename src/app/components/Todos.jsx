@@ -16,7 +16,7 @@ function Todos() {
             key={todo.id}
           >
             <div className='text-white'>
-                {todo.text}
+                {todo.name}
                 <br/>
                 {todo.number}
                 <br/>
