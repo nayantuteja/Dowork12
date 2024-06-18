@@ -11,27 +11,23 @@ export const todoSlice = createSlice({   //slice is a bigger function of reducer
     addTodo: (state, action) => {
         const todo={
             id: nanoid(),
-            text: action.payload //the text will be fetch for action from payload (payload is an object)
+            name: action.payload.name, 
+            number: action.payload.number,//the text will be fetch for action from payload (payload is an object)
+            address: action.payload.address,
+            pincode: action.payload.pincode,
+            text: action.payload.text,
         }
         state.todos.push(todo)  //taking access from state udhar se todo lene as we have initializse todo there and then pushing the value in todo
 
     },    
-    numberTodo: (state, action) => {
-        const todo={
-            id: nanoid(),
-            text: action.payload //the text will be fetch for action from payload (payload is an object)
-        }
-        state.todos.push(todo)  //taking access from state udhar se todo lene as we have initializse todo there and then pushing the value in todo
-
-    },  
     removeTodo: (state,action) => {
-   state.todos = state.todos.filter((todo)=> todo.id !== action.payload )
+   state.todos = state.todos.filter((todo)=> todo.id !== action.payload );
 
     }
    }
 
-})
+});
 
-export const{addTodo,removeTodo,numberTodo} = todoSlice.actions
+export const{addTodo,removeTodo} = todoSlice.actions
 export default todoSlice.reducer
 
