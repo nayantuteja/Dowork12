@@ -3,5 +3,6 @@ import todoReducer from '../features/todo/todoSlice';
 
 export const store = configureStore({  // exporting variable store it will come from configure store and will take object
 
-    reducer : todoReducer
+    reducer : {
+        todos: todoReducer
 })  
