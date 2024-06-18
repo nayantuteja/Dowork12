@@ -5,4 +5,5 @@ export const store = configureStore({  // exporting variable store it will come 
 
     reducer : {
         todos: todoReducer
+    },
 })  
