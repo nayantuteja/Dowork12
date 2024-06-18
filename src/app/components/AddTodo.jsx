@@ -3,17 +3,18 @@ import { useDispatch } from 'react-redux'
 import {addTodo,numberTodo} from '../features/todo/todoSlice'
 
 function AddTodo() {
-    const [number, setNumber] = useState('')
+   
+    const [name,setName] = useState('')
+     const [number, setNumber] = useState('')
     const [address, setAddress] = useState('')
     const [pincode, setPincode] = useState('')
-    const [input,setInput] = useState('')
     const dispatch = useDispatch()
    
     const addTodoHandler = (e) => {         
     e.preventDefault()
-    dispatch(addTodo({input,number,address,pincode}))
+    dispatch(addTodo({name,number,address,pincode}))
         
-    setInput('')
+        setName('')
         setNumber('')
         setAddress('')
         setPincode('')
@@ -28,8 +29,8 @@ function AddTodo() {
         type="text"
         className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         placeholder="Enter Name"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
        <input
         type="text"
